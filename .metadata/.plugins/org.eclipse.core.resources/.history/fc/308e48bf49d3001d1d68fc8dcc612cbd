@@ -1,0 +1,11 @@
+package com.ty.hospital_app.dao;
+
+import com.ty.hospital_app.dto.Encounter;
+import com.ty.hospital_app.dto.User;
+
+public interface UserDao {
+	User saveUser(User user);
+	User getUserById(int uid);
+	boolean deleteUserById(int uid);
+	User updateUserById(int uid,User user);
+}

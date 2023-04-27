@@ -1,0 +1,55 @@
+package com.ty.hospital_app.dao.imp;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.ty.hospital_app.dao.MedOrderDao;
+import com.ty.hospital_app.dto.Branch;
+import com.ty.hospital_app.dto.MedOrder;
+
+public class MedOrderDaoImp implements MedOrderDao{
+
+	public MedOrder saveMedOrder(int eid, MedOrder medOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MedOrder getMedOrderById(int mid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean deleteMedOrderById(int mid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public MedOrder updateMedOrderById(int mid, MedOrder medOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<MedOrder> getAllMedOrders() {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vikas");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		
+		Query query=entityManager.createQuery("select m from MedOrder m");
+		List<MedOrder> medOrders=query.getResultList();
+		return medOrders;
+	}
+
+	public List<MedOrder> getMedOrdersByDoctorName(String dname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<MedOrder> getMedOrdersByDate(String date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

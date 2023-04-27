@@ -1,0 +1,50 @@
+package com.ty.hospital_app.service;
+
+import com.ty.hospital_app.dao.imp.UserDaoImp;
+import com.ty.hospital_app.dto.User;
+
+public class UserService {
+	public void saveUser(User user) {
+		UserDaoImp udi=new UserDaoImp();
+		User user1=udi.saveUser(user);
+		if(user1!=null) {
+			System.out.println("data saved");
+		}
+		else {
+			System.out.println("unfortunately data not saved");
+		}
+	}
+	
+	public User getUser(int uid) {
+		UserDaoImp udi=new UserDaoImp();
+		User user1=udi.getUserById(uid);
+		if(user1!=null) {
+			return user1;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public void deleteUser(int uid) {
+		UserDaoImp udi=new UserDaoImp();
+		boolean flag=udi.deleteUserById(uid);
+		if(flag==true) {
+			System.out.println("data deleted");
+		}
+		else {
+			System.out.println("data not found");
+		}
+	}
+	
+	public User updateUserById(int uid,User user) {
+		UserDaoImp udi=new UserDaoImp();
+		User user1=udi.updateUserById(uid, user);
+		if(user1!=null) {
+			return user1;
+		}
+		else {
+			return null;
+		}
+	}
+}

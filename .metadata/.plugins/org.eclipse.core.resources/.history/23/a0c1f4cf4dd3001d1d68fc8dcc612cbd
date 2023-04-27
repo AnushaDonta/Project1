@@ -1,0 +1,10 @@
+package com.ty.hospital_app.dao;
+
+import com.ty.hospital_app.dto.Person;
+
+public interface PersonDao {
+	Person savePerson(int eid,Person person);
+	Person getPersonById(int pid);
+	boolean deletePersonById(int pid);
+	Person updatePersonById(int pid,Person person);
+}

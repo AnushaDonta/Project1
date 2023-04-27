@@ -1,0 +1,52 @@
+package com.ty.hospital_app.service;
+
+import com.ty.hospital_app.dao.imp.BranchDaoImp;
+import com.ty.hospital_app.dao.imp.PersonDaoImp;
+import com.ty.hospital_app.dto.Branch;
+import com.ty.hospital_app.dto.Person;
+
+public class PersonService {
+	public void saveBranch(Branch branch,int hid) {
+		BranchDaoImp bdi=new BranchDaoImp();
+		Branch branch1=bdi.saveBranch(hid, branch);
+		if(branch1!=null) {
+			System.out.println("data saved");
+		}
+		else {
+			System.out.println("unfortunately data not saved");
+		}
+	}
+	
+	public Branch getBranch(int bid) {
+		BranchDaoImp bdi=new BranchDaoImp();
+		Branch branch=bdi.getBranch(bid);
+		if(branch!=null) {
+			return branch;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public void deletePerson(int pid) {
+		PersonDaoImp pdi=new PersonDaoImp();
+		boolean flag=pdi.deletePersonById(pid);
+		if(flag==true) {
+			System.out.println("data deleted");
+		}
+		else {
+			System.out.println("data not found");
+		}
+	}
+	
+	public Person updatePersonById(int pid,Person person) {
+		PersonDaoImp pdi=new PersonDaoImp();
+		Person person1=pdi.updatePersonById(pid, person);
+		if(person1!=null) {
+			return person1;
+		}
+		else {
+			return null;
+		}
+	}
+}

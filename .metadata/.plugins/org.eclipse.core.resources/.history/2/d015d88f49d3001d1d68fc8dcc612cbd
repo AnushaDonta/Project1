@@ -1,0 +1,11 @@
+package com.ty.hospital_app.dao;
+
+import com.ty.hospital_app.dto.Encounter;
+import com.ty.hospital_app.dto.Observation;
+
+public interface ObservationDao {
+	Observation saveObservation(int eid,Observation observation);
+	Observation getObservationById(int oid);
+	boolean deleteObservationById(int oid);
+	Observation updateObservationById(int oid,Observation observation);
+}

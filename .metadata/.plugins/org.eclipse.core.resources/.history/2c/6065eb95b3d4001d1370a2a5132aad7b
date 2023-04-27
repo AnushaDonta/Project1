@@ -1,0 +1,55 @@
+package com.ty.hospital_app.dao.imp;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ty.hospital_app.dao.ItemDao;
+import com.ty.hospital_app.dto.Hospital;
+import com.ty.hospital_app.dto.Item;
+import com.ty.hospital_app.dto.MedOrder;
+
+public class ItemDaoImp implements ItemDao{
+
+	public Item saveItem(int mid, Item item) {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vikas");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		
+		MedOrder medOrder=entityManager.find(MedOrder.class, mid);
+		if(medOrder!=null) {
+			entityTransaction.begin();
+			entityManager.persist(item);
+			entityTransaction.commit();
+			
+			return item;
+		}
+		else {
+			return null;
+		}
+	}
+
+	public Item getItemById(int iid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean deleteItemById(int iid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Item updateItemById(int iid, Item item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Item> getAllItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
